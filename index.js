@@ -11,7 +11,7 @@ const path=require('path');
 const app = express()
 
 //defining route
-const PORT = 4000;
+const PORT = process.env.PORT || 4000;
 
 dotEnv.config();
 mongoose.connect(process.env.MONGO_URI)
@@ -32,7 +32,7 @@ app.listen(PORT,()=>{
 
 
 // creating a route
-app.use('/home',(req,res)=>
+app.use('/',(req,res)=>
 {
     res.send("<h1> Welcome to FoodieU");
 })
